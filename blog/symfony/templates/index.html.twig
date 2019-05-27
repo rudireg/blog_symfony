@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+{% use 'blocks/left_menu.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col"><h1>Новости</h1></div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-3 bg-dark text-light pr-5">
+                {% block left_menu %}
+                    {{ parent() }}
+                {% endblock %}
+            </div>
+            <div class="col-12 col-md-9">Привет Мир !</div>
+        </div>
+    </div>
+{% endblock %}

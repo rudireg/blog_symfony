@@ -1,0 +1,19 @@
+{#
+Шаблон отображения пагинации.
+Принимает аргументы:
+    count - колличество страниц пагинации
+    current - номер текущей страницы
+#}
+{% block pagination %}
+    {% if count > 1 %}
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                {% for i in range(1, count) %}
+                    <li class="page-item {% if i==current %} active {% endif %}">
+                        <a class="page-link" href="?page={{ i }}">{{ i }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </nav>
+    {% endif %}
+{% endblock %}

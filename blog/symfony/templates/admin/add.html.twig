@@ -1,0 +1,20 @@
+{% extends "base.html.twig" %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('admin') }}
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-4 bg-dark text-light d-flex flex-column">
+                {% include "admin/left_menu.html.twig" %}
+            </div>
+            <div class="col-12 col-md-8">
+                <h2>Добавить новость</h2>
+                {% include 'admin/news_data.html.twig' with {'themes':themes} only %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

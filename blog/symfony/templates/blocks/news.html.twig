@@ -1,0 +1,29 @@
+{% block news %}
+    {% for item in news %}
+        <div id="news_{{ item.news_id }}" class="mb-5">
+            <div class="row">
+                <h2 class="col">{{ item.title }}</h2>
+            </div>
+            <div class="row">
+                <span class="col">{{ item.date }} <span class="font-weight-bold ml-2">{{ item.theme_title }}</span></span>
+            </div>
+            <div class="row">
+                <div class="col">{{ item.text }}</div>
+            </div>
+            {% if read_more == true %}
+            <div class="row">
+                <div class="col d-flex justify-content-between">
+                    <a class="btn-link" href="{{ path('news_list', {'year':item.yy,'month':item.mm,'id':item.news_id}) }}">читать далее</a>
+                    {% if admin is defined and admin == true %}
+                        <a href="{{ path('admin_news_edit', {'id':item.news_id}) }}" act="edit" news_id="{{ item.news_id }}" type="button" class="btn btn-secondary text-light">Редактировать</a>
+                        <button act="delete" news_id="{{ item.news_id }}" type="button" class="btn btn-danger">Удалить</button>
+                    {% endif %}
+                </div>
+            </div>
+            {% else %}
+                <br/>
+                <a href="{{ path('news_list') }}">Все новости</a>
+            {% endif %}
+        </div>
+    {% endfor %}
+{% endblock %}

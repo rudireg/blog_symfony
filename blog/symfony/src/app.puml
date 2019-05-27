@@ -1,0 +1,23 @@
+@startuml
+interface ArticleInterface
+interface ArticleCollectionInterface
+
+ArticleInterface <|-- Article
+ArticleCollectionInterface <|-- ArticleCollection
+ArticleCollection  -* Article
+Article -* PDO
+
+Article : pdo
+Article : save()
+
+ArticleCollection : objectArray
+ArticleCollection : append()
+ArticleCollection : append()
+
+PDO : getAllNews()
+PDO : getNews(**id**)
+PDO : saveNews(...)
+PDO : updateNews()
+PDO : deleteNews()
+
+@enduml

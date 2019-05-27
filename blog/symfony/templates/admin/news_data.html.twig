@@ -1,0 +1,32 @@
+{% block news_data %}
+    <form id="form-add-news">
+        <input value="{% if news is defined %}{{ news.news_id }}{% endif %}" type="text" id="news-id" name="id" hidden />
+        <div class="form-group">
+            <label for="news-title">Заголовок</label>
+            <input value="{% if news is defined %}{{ news.title }}{% endif %}" type="text" name="title" class="form-control" id="news-title" placeholder="Заголовок" required>
+        </div>
+        <div class="form-group">
+            <label for="news-text">Содержание новости</label>
+            <textarea class="form-control" name="text" id="news-text" rows="6" placeholder="Содержание новости" required>{% if news is defined %}{{ news.text }}{% endif %}</textarea>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <div class="form-group">
+                    <label for="news-theme">Тема</label>
+                    <select class="form-control" id="news-theme" name="theme" required>
+                        {% for theme in themes %}
+                            <option {% if news is defined and news.theme_id == theme.theme_id %} selected {% endif %} value="{{ theme.theme_id }}">{{ theme.theme_title }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="form-group">
+                    <label for="ndatepicker">Дата</label>
+                    <input value="{% if news is defined %}{{ news.date }}{% endif %}" class="form-control" name="date" type="text" id="datepicker" required/>
+                </div>
+            </div>
+        </div>
+        <button type="button" id="news-add" class="btn btn-primary">Применить</button>
+    </form>
+{% endblock %}

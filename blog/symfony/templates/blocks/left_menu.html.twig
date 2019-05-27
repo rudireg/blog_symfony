@@ -1,0 +1,29 @@
+{% block left_menu %}
+    <h3>По месяцам</h3>
+    <ul>
+        {% for year, year_data in years_data %}
+            <li>
+                <a class="text-light" href="{{ path('news_list', {'year':year}) }}">{{ year }}</a>
+                <ul>
+                    {% for month, data in year_data %}
+                    <li>
+                        <a class="text-light" href="{{ path('news_list', {'year':year, 'month':month}) }}">
+                            {{ data.russ_month }}
+                        </a>&nbsp;&nbsp;<span class="badge badge-light">{{ data.count }}</span>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </li>
+        {% endfor %}
+    </ul>
+    <br/>
+    <h3>Список тем</h3>
+    <ul >
+        {% for theme in themes %}
+            <li>
+                <a class="text-light" href="{{ path('theme_list', {'id': theme.theme_id}) }}" />
+                {{ theme.theme_title }}</a>&nbsp;&nbsp;<span class="badge badge-light">{{ theme.cnt }}</span>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
