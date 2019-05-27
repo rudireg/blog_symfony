@@ -9,7 +9,9 @@
 /blog/symfony/src/Command/PdoCommand.php
 
 находится скрипт создающий БД/
-Для запуска установки докера docker-compose -f docker-compose.dev.yml run --rm php bin/console app:create_tables
+Для развертывания базы, команда 
+
+docker-compose -f docker-compose.dev.yml run --rm php bin/console app:create_tables
 
 Админка по адресу http://localhost:10503/admin
 логин admin@ya.ru
