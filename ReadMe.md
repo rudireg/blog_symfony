@@ -1,24 +1,18 @@
-### Развернуть докер.
+### Deploy Docker
 `docker-compose -f docker-compose.dev.yml up -d`
-### Установить приложения через Composer
+
+### Install Composer
 `docker-compose -f docker-compose.dev.yml run --rm php composer install`
-### Развернуть Базу данных (MySql)
-Создать базу данных mysql под именем `test_news`
 
-В файле 
-/blog/symfony/src/Command/PdoCommand.php
+### Create MySql database
+You must create database with name: `test_news`
 
-находится скрипт создающий БД/
+### To create tables in database run the following command:
+`docker-compose -f docker-compose.dev.yml run --rm php bin/console app:create_tables`
 
-Для развертывания базы, команда 
-
-docker-compose -f docker-compose.dev.yml run --rm php bin/console app:create_tables
-
-Админка по адресу http://localhost:10503/admin
-
-логин admin@ya.ru
-
-пароль admin
+Here is an admin panel http://localhost:10503/admin
+Login: admin@ya.ru
+Password: admin
 
 
 
