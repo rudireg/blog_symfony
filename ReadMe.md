@@ -11,7 +11,9 @@ You must create database with name: `test_news`
 `docker-compose -f docker-compose.dev.yml run --rm php bin/console app:create_tables`
 
 Here is an admin panel http://localhost:10503/admin
+
 Login: admin@ya.ru
+
 Password: admin
 
 
