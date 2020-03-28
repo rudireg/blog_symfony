@@ -10,6 +10,7 @@ You must create database with name: `test_news`
 ### To create tables in database run the following command:
 `docker-compose -f docker-compose.dev.yml run --rm php bin/console app:create_tables`
 
+### Admin panel
 Here is an admin panel http://localhost:10503/admin
 
 Login: admin@ya.ru
